@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Bungee&family=Libertinus+Keyboard&display=swap');
+nav {
+    top: 0;
+    z-index: 1000;
+    position: sticky;
+    border-radius: 10px;
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+    transition-duration: 0.5s;
+    color: darkgreen;
+}
+
+hr {
+    height: 1000px;
+}
+
+.up {
+    font-family: "Libertinus keyboard", system-ui;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    border: 4px double lightgreen;
+    border-radius: 10px;
+    background-color: green;
+}
+
+h1 {
+    font-family: "Black Ops One", system-ui;
+}
+
+h4 {
+    font-family: "Bungee", sans-serif;
+}
+
+.sub {
+    margin-left: 0;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    z-index: inherit;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 4px double rgba(144, 238, 144);
+    background-color: rgba(255, 255, 0);
+    font-size: 15px;
+    margin-left: 0;
+    transition-duration: 0.5s;
+    font-weight: bold;
+    border-left: none;
+    box-sizing: border-box;
+}
+
+.sub:hover {
+    transform: scale(1, 1);
+    transition-duration: 0.5s;
+    color: darkgreen;
+}
+
+input {
+    border: 4px double lightgreen;
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-right: 0;
+    font-weight: bold;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    z-index: inherit;
+    border-radius: 10px;
+    border: 4px double rgba(144, 238, 144);
+    background-color: rgba(255, 255, 0);
+    font-size: 15px;
+    margin: 0px 5px 5px 5px;
+    transition-duration: 0.5s;
+    font-weight: bold;
+}
+
+form {
+    padding: 0;
+}
+
