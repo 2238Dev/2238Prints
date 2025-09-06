@@ -17,7 +17,7 @@ document.querySelector("#submit").addEventListener("click", function (e) {
     e.preventDefault()
     switch(trackid){
         case 1163306092025:
-            window.location.href = `/user/tracking/ui/?id ${trackid}`;
+            window.location.href = `/user/tracking/ui/?id${trackid}`;
             break
         default:
             document.querySelector(".info").textContent = `sorry, we don't have package: ${trackid}`
