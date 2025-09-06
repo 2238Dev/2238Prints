@@ -12,7 +12,8 @@ document.querySelector("#listBtn").addEventListener("click", function () {
 
 // Funkcja pobierająca dane
 async function getData() {
-  const konkretneId = "1163306092025";
+  const params = new URLSearchParams(window.location.search);
+  const konkretneId = params.get('id');
   console.log('Start pobierania danych dla id:', konkretneId);
 
   const { data, error } = await window.supabase
