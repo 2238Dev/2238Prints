@@ -31,7 +31,7 @@ async function getData() {
   if (data.length > 0) {
     console.log('Znaleziono status:', data[0].status);
     document.querySelector('.status').textContent = `Status: ${data[0].status}`;
-    document.querySelector('.stat1').textContent = `Status: ${data[0].status}`;
+    document.querySelector('.stat1').textContent = data[0].status;
   } else {
     console.warn('Brak rekordu z podanym id:', konkretneId);
     document.querySelector('.status').textContent = 'Brak statusu dla podanego ID';
