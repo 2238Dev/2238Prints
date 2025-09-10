@@ -28,7 +28,7 @@ async function getData() {
 
 getData()
 
-document.querySelector("#submit").addEventListener("click", function (e) {
+document.querySelector("#submit").addEventListener("click", async function (e) {
     let trackid = Number(document.getElementById("tid").value);
     e.preventDefault();
 
