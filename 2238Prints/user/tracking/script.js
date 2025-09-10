@@ -10,21 +10,23 @@ document.querySelector("#listBtn").addEventListener("click", function () {
     window.location.href = "/list";
 });
 
-async function getData() {
-  const params = new URLSearchParams(window.location.search);
-  const konkretneId = params.get('id');
-  console.log('Start pobierania danych dla id:', konkretneId);
+async function getData(trackid) {
+  console.log('Start pobierania danych dla id:', trackid);
 
-  const { data, error } = await window.supabase
+  const { data, error } = await supabase
     .from('package')
     .select('*')
-    .eq('id', konkretneId);
+    .eq('id', trackid)
+    .single();
 
   if (error) {
     console.error('Błąd podczas pobierania:', error);
-    return;
+    return null;
   }
+
+  return data;
 }
+
 
 getData()
 
