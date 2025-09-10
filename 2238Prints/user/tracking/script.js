@@ -28,14 +28,14 @@ async function getData(trackid) {
 }
 
 
-getData()
+getData(trackid)
 
 document.querySelector("#track-form").addEventListener("submit", async function (e) {
     e.preventDefault();  // <-- zapobiega przeładowaniu strony
 
     const trackid = Number(document.getElementById("tid").value);
 
-    const data = await getData();
+    const data = await getData(trackid);
     if (!data) return;
 
     const found = data.find(pkg => pkg.id === trackid);
