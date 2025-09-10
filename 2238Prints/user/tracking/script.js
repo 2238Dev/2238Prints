@@ -28,21 +28,23 @@ async function getData() {
 
 getData()
 
-document.querySelector("#submit").addEventListener("click", async function (e) {
-    let trackid = Number(document.getElementById("tid").value);
-    e.preventDefault();
+document.querySelector("#track-form").addEventListener("submit", async function (e) {
+    e.preventDefault();  // <-- zapobiega przeładowaniu strony
+
+    const trackid = Number(document.getElementById("tid").value);
 
     const data = await getData();
     if (!data) return;
 
     const found = data.find(pkg => pkg.id === trackid);
+
     if (found) {
-        window.location.href = `/user/tracking/ui/?id=${trackid}`
-    }
-    else {
-        document.querySelector(".info").textContent = `Sorry, we don't have package: ${trackid}`
+        window.location.href = `/user/tracking/ui/?id=${trackid}`;
+    } else {
+        document.querySelector(".info").textContent = `Sorry, we don't have package: ${trackid}`;
     }
 });
+
 
 
 
