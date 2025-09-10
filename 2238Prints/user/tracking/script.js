@@ -13,21 +13,29 @@ document.querySelector("#listBtn").addEventListener("click", function () {
 const trackid = document.getElementById("tid").value;
 
 async function getData(trackid) {
-  console.log('Start pobierania danych dla id:', trackid);
+  try {
+    const { data, error } = await supabase
+      .from('package')
+      .select('*')
+      .eq('id', trackid)
+      .single();
 
-  const { data, error } = await supabase
-    .from('package')
-    .select('*')
-    .eq('id', trackid)
-    .single();
+    if (error) {
+      // Jeżeli błąd mówi, że nie znaleziono wiersza, to to nie jest problem krytyczny
+      if (error.code === 'PGRST116') { // kod błędu Supabase dla "no rows found"
+        return null; // spokojnie zwracamy null
+      }
+      console.error('Błąd podczas pobierania:', error);
+      return null;
+    }
 
-  if (error) {
-    console.error('Błąd podczas pobierania:', error);
+    return data;
+  } catch (e) {
+    console.error('Nieoczekiwany błąd:', e);
     return null;
   }
-
-  return data;
 }
+
 
 
 getData(trackid)
