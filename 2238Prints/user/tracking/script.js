@@ -33,21 +33,24 @@ async function getData(trackid) {
 getData(trackid)
 
 document.querySelector("#track-form").addEventListener("submit", async function (e) {
-    e.preventDefault();  // <-- zapobiega przeładowaniu strony
+    e.preventDefault();
 
-    const trackid = Number(document.getElementById("tid").value);
+    const trackid = document.getElementById("tid").value.trim();
+
+    if (!trackid) {
+        document.querySelector(".info").textContent = "Proszę wpisać poprawny numer paczki";
+        return;
+    }
 
     const data = await getData(trackid);
-    if (!data) return;
 
-    const found = data.find(pkg => pkg.id === trackid);
-
-    if (found) {
+    if (data) {
         window.location.href = `/user/tracking/ui/?id=${trackid}`;
     } else {
         document.querySelector(".info").textContent = `Sorry, we don't have package: ${trackid}`;
     }
 });
+
 
 
 
