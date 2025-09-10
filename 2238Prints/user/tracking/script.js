@@ -40,7 +40,7 @@ document.querySelector("#submit").addEventListener("click", async function (e) {
         window.location.href = `/user/tracking/ui/?id=${trackid}`
     }
     else {
-        document.querySelector("info").textContent = `Sorry, we don't have package: ${trackid}`
+        document.querySelector(".info").textContent = `Sorry, we don't have package: ${trackid}`
     }
 });
 
