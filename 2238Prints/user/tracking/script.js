@@ -30,17 +30,19 @@ getData()
 
 document.querySelector("#submit").addEventListener("click", function (e) {
     let trackid = Number(document.getElementById("tid").value);
-    e.preventDefault()
+    e.preventDefault();
 
     const data = await getData();
     if (!data) return;
 
-    for (let i = 0; i < data.length; i++ ){
-        if (trackid === data[i].id){
-            window.location.href = `/user/tracking/ui/?id=${trackid}`
-        }
+    const found = data.find(pkg => pkg.id === trackid);
+    if (found) {
+        window.location.href = `/user/tracking/ui/?id=${trackid}`
     }
-})
+    else {
+        document.querySelector("info").textContent = `Sorry, we don't have package: ${trackid}`
+    }
+});
 
 
 
