@@ -10,7 +10,7 @@ document.querySelector("#listBtn").addEventListener("click", function () {
     window.location.href = "/list";
 });
 
-const trackid = Number(document.getElementById("tid").value);
+const trackid = document.getElementById("tid").value;
 
 async function getData(trackid) {
   console.log('Start pobierania danych dla id:', trackid);
